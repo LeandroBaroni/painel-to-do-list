@@ -27,6 +27,7 @@
               }
             ],
             "styles": [
+              "src/css/toastr.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -92,5 +93,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "411f7616-1216-46dd-a96c-8cffee16d72f"
   }
 }

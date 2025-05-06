@@ -1,0 +1,17 @@
+@import "ngx-toastr/toastr";
+
+.toast-info {
+  background-color: #0d6efd;
+}
+
+.toast-error {
+  background-color: #dc3545;
+}
+
+.toast-success {
+  background-color: #198754;
+}
+
+.toast-warning {
+  background-color: #ffc107;
+}
