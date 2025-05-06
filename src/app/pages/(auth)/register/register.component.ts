@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { fullNameValidator } from '@validators/fullName';
 
 @Component({
-  selector: 'app-register',
-  imports: [],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrl: './register.component.css',
+  imports: [ReactiveFormsModule, RouterLink],
 })
 export class RegisterComponent {
   private formBuilder = inject(FormBuilder)
@@ -14,12 +14,12 @@ export class RegisterComponent {
   formGroup = this.formBuilder.group({
     name: this.formBuilder.control(null, [ Validators.required, fullNameValidator ]),
     email: this.formBuilder.control(null, [ Validators.required, Validators.email ]),
-    password: this.formBuilder.control(null, [ Validators.required ]),
-    confirmPassword: this.formBuilder.control(null, [ Validators.required ])
+    password: this.formBuilder.control(null, [ Validators.required, Validators.minLength(6) ]),
+    confirmPassword: this.formBuilder.control(null, [ Validators.required, Validators.minLength(6) ])
   });
 
   handleSubmit () {
-    if (!this.formGroup.invalid) {
+    if (this.formGroup.invalid) {
       return
     }
 
