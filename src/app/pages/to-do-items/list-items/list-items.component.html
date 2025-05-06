@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>To-Do List</h1>
+
+  <form class="input-group" [formGroup]="formGroup"(ngSubmit)="handleSubmit()">
+    <input formControlName="description" placeholder="Digite a descrição da tarefa..." />
+    <button type="submit">Adicionar</button>
+  </form>
+
+  <ul class="task-list">
+    @for (item of items(); track $index) {
+      <li>
+        {{ item.description }}
+        <button class="remove-btn" (click)="removeItem(item.id)">✕</button>
+      </li>
+    }
+  </ul>
+</div>
