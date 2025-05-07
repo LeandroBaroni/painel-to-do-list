@@ -7,9 +7,5 @@ export const unauthenticatedRoutes: Routes = [
   {
     path: '',
     children: authRoutes
-  },
-  {
-    path: 'itens',
-    children: toDoRoutes
-  },
+  }
 ];

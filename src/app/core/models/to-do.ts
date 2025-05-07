@@ -5,5 +5,5 @@ export interface ToDo extends BaseModel{
   description: string;
   isCompleted: boolean;
   priority: PriorityEnum,
-  userId: number;
+  userId: string;
 }

@@ -1,12 +1,12 @@
 <div class="container">
   <div class="form-box">
-    <form class="form" [formGroup]="formGroup">
+    <form class="form" [formGroup]="formGroup" errorTailor novalidate (ngSubmit)="handleSubmit()">
         <span class="title">Seja bem vindo</span>
         <div class="form-container">
           <input class="input" autocomplete="off" formControlName="email" inputmode="email" type="email" placeholder="E-mail" />
           <input class="input" autocomplete="off" formControlName="password" type="password" placeholder="Senha" />
         </div>
-        <button>Login</button>
+        <button type="submit">Login</button>
     </form>
     <div class="form-section">
       <a routerLink="/registrar">Cadastrar</a>

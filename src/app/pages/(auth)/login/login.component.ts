@@ -1,23 +1,48 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { ApiError } from '@exceptions/ApiError';
+import { errorTailorImports } from '@ngneat/error-tailor';
+import { AuthService } from '@services/auth.service';
+import { getApiError } from '@utils/get-error-api';
+import { sleep } from '@utils/sleep';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink, errorTailorImports],
 })
 export class LoginComponent {
-  private formBuilder = inject(FormBuilder)
+  private readonly router = inject(Router);
+  private readonly formBuilder = inject(FormBuilder);
+  private readonly authService = inject(AuthService);
+  private readonly toastrService = inject(ToastrService);
 
   formGroup = this.formBuilder.group({
     email: this.formBuilder.control(null, [Validators.required, Validators.email]),
     password: this.formBuilder.control(null, [Validators.required]),
   })
 
-  handleSubmit () {
+  async handleSubmit () {
     if (this.formGroup.invalid) {
-      return
+      this.toastrService.error('Preencha todos os campos')
+      return;
+    }
+
+    const { email, password } = this.formGroup.value;
+    try {
+      await this.authService.signin(email, password);
+
+      await sleep(1000);
+
+      await this.router.navigateByUrl('/itens')
+    } catch (error) {
+      let message = 'Houve um erro ao logar';
+      if (error instanceof ApiError) {
+        message = getApiError(error.code);
+      }
+      this.toastrService.error(message)
     }
   }
 }

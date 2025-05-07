@@ -1,0 +1,8 @@
+<header class="app-header">
+  <div class="header-content">
+    @if(user){
+      <img src="https://ui-avatars.com/api/?name={{user.displayName}}" alt="Logo" class="logo" />
+    }
+    <button class="back-button" type="button" (click)="logout()">Voltar</button>
+  </div>
+</header>

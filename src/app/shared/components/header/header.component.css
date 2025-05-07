@@ -1,0 +1,44 @@
+.app-header {
+  /* width: 100%; */
+  background-color: #f8f9fa;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  border-radius: 50px;
+  height: 48px;
+  width: 48px;
+}
+
+
+.back-button {
+  background-color: transparent;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.back-button:hover {
+  background-color: #eee;
+}
+
+@media (max-width: 400px) {
+  .header-content {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .back-button {
+    width: 100%;
+  }
+}

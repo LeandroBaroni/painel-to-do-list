@@ -5,6 +5,7 @@
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
     "strict": true,
+    "strictNullChecks": false,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
@@ -23,6 +24,7 @@
       "@configs/*": ["src/app/core/configs/*"],
       "@models/*": ["src/app/core/models/*"],
       "@interfaces/*": ["src/app/core/interfaces/*"],
+      "@interceptors/*": ["src/app/core/interceptors/*"],
       "@guards/*": ["src/app/core/guards/*"],
       "@exceptions/*": ["src/app/core/exceptions/*"],
       "@services/*": ["src/app/core/services/*"],
@@ -31,7 +33,9 @@
       "@directives/*": ["src/app/shared/directives/*"],
       "@modals/*": ["src/app/modals/*"],
       "@utils/*": ["src/app/core/utils/*"],
-      "@validators/*": ["src/app/core/validators/*"]
+      "@validators/*": ["src/app/core/validators/*"],
+      "@environments/*": ["src/environments/*"],
+      "@resources/*": ["src/app/core/resources/*"]
     }
   },
   "angularCompilerOptions": {
