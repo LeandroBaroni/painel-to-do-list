@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+  height: 100%;
+
+  @media (max-width: 1080px) {
+    font-size: 93.75%;
+  }
+
+  @media (max-width: 720px) {
+    font-size: 87.5%;
+  }
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+}
+
+.container {
+  padding: 1rem;
+}

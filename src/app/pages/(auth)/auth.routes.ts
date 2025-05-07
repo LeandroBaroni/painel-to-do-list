@@ -9,7 +9,6 @@ export const authRoutes: Routes = [
   {
     path: 'registrar',
     title: 'Registrar',
-    data: { isModeColaborador: true },
     loadComponent: () => import('./register/register.component').then(p => p.RegisterComponent)
   }
 ];

@@ -1,1 +1,17 @@
-<p>register works!</p>
+<div class="container">
+  <div class="form-box">
+    <form class="form" [formGroup]="formGroup" errorTailor novalidate (ngSubmit)="handleSubmit()">
+        <span class="title">Cadastre-se</span>
+        <div class="form-container">
+          <input class="input" autocomplete="off" formControlName="name" type="text" placeholder="Nome" />
+          <input class="input" autocomplete="off" formControlName="email" inputmode="email" type="email" placeholder="E-mail" />
+          <input class="input" autocomplete="off" formControlName="password" type="password" placeholder="Senha" />
+          <input class="input" autocomplete="off" formControlName="confirmPassword" type="password" placeholder="Digite novamente a senha" />
+        </div>
+        <button type="submit" [disabled]="isSubmitting()">Cadastrar</button>
+    </form>
+    <div class="form-section">
+      <p>Possui uma conta? <a routerLink="/login">Login</a> </p>
+    </div>
+  </div>
+</div>

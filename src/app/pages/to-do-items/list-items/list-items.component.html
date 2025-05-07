@@ -1,0 +1,48 @@
+<div class="container">
+  <h1>To-Do List</h1>
+
+  <form class="input-group" [formGroup]="formGroup" (ngSubmit)="handleSubmit()" errorTailor novalidate>
+    <div class="form-group">
+      <label for="description">Descrição:</label>
+      <input
+        type="text"
+        id="description"
+        formControlName="description"
+        autocomplete="off"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="priority">Prioridade</label>
+      <select id="priority" formControlName="priority" required>
+        <option value="" disabled selected>Selecione uma opção</option>
+        @for (option of priorityOptions; track $index) {
+          <option [value]="option.id">{{ option.label }}</option>
+        }
+      </select>
+    </div>
+
+    <button type="submit">Adicionar</button>
+  </form>
+
+  <ul class="task-list">
+    @for (item of items(); track $index) {
+      <li [class.completed]="item.isCompleted" class="task-item">
+        <div class="item">
+          <input
+            type="checkbox"
+            [id]="item.id"
+            [checked]="item.isCompleted"
+            (change)="update(item.id)"
+          />
+          <label [for]="item.id">{{ item.description }} ({{item.priority | priorityText}})</label>
+        </div>
+
+        <button class="delete-btn" type="button" (click)="delete(item.id)">
+          🗑️
+        </button>
+      </li>
+    }
+  </ul>
+</div>
