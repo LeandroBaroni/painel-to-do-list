@@ -26,31 +26,22 @@ Projeto de gerenciamento de tarefas desenvolvido com **Angular**, com testes uni
 
 ## 📦 Instalação
 
-Clone o repositório e instale as dependências:
+- Clone o repositório e instale as dependências:
 
-```bash
-git clone https://github.com/seu-usuario/painel-to-do-list.git
-cd painel-to-do-list
-npm install
-▶️ Executar o Projeto
-Modo Desenvolvimento
-bash
-Copiar código
-ng serve
-Acesse em: http://localhost:4300
+- git clone https://github.com/LeandroBaroni/painel-to-do-list.git
+- cd painel-to-do-list
+- npm install
+- ▶️ Executar o Projeto
+``
+echo "npm run dev"
+- Acesse em: http://localhost:4300
 
 Rodar Testes
-bash
-Copiar código
 npm run test
 🌐 API
 ✅ API Produção
-perl
-Copiar código
 https://to-do-list-rn9g.onrender.com
 🛠️ API Local
-bash
-Copiar código
 http://127.0.0.1:5001/to-do-list-d8a09/southamerica-east1/app
 🔐 Autenticação
 📌 Cadastro de Usuário
@@ -59,7 +50,6 @@ Endpoint: POST /users/create
 Body:
 
 json
-Copiar código
 {
   "name": "Fulano Silva",
   "email": "fulanosilva@exemplo.com",
@@ -76,7 +66,6 @@ Endpoint: POST /tasks
 Body:
 
 json
-Copiar código
 {
   "description": "Comprar leite",
   "priority": "Alta"
@@ -85,19 +74,4 @@ Copiar código
 Este projeto utiliza o Jest para testes unitários. Os testes estão localizados nos arquivos *.spec.ts.
 
 Executar os testes:
-bash
-Copiar código
 npm run test
-📁 Estrutura do Projeto (Resumo)
-arduino
-Copiar código
-src/
-├── app/
-│   ├── components/
-│   ├── services/
-│   ├── models/
-│   └── pages/
-├── assets/
-├── environments/
-├── setup-jest.ts
-└── jest.config.js
