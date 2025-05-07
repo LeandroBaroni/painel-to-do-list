@@ -8,6 +8,7 @@
     "dev": "ng serve -o --port 4300 --configuration development",
     "watch": "ng build --watch --configuration development",
     "test": "jest",
+    "test:coverage": "jest --coverage",
     "test:watch": "jest --watch"
   },
   "jest": {

@@ -23,7 +23,7 @@ export class LoginComponent {
 
   formGroup = this.formBuilder.group({
     email: this.formBuilder.control(null, [Validators.required, Validators.email]),
-    password: this.formBuilder.control(null, [Validators.required]),
+    password: this.formBuilder.control(null, [Validators.required, Validators.min(6)]),
   })
 
   async handleSubmit () {

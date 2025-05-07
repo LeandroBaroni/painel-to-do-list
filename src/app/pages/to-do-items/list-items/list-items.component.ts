@@ -1,5 +1,5 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PriorityEnum, PriorityTypeOptions } from '@enums/priority';
 import { ApiError } from '@exceptions/ApiError';
 import { ToDo } from '@models/to-do';
@@ -100,9 +100,7 @@ export class ListItemsComponent implements OnInit {
           userId,
           priority,
           description,
-          createdAt: new Date(),
-          isCompleted: false,
-          updatedAt: null
+          isCompleted: false
         });
         return items;
       });
