@@ -23,7 +23,7 @@
       </select>
     </div>
 
-    <button type="submit">Adicionar</button>
+    <button type="submit" [disabled]="isSubmitting()">Adicionar</button>
   </form>
 
   <ul class="task-list">
@@ -39,7 +39,7 @@
           <label [for]="item.id">{{ item.description }} ({{item.priority | priorityText}})</label>
         </div>
 
-        <button class="delete-btn" type="button" (click)="delete(item.id)">
+        <button class="delete-btn" type="button" [disabled]="isSubmitting()" (click)="delete(item.id)">
           🗑️
         </button>
       </li>

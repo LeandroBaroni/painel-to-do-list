@@ -27,6 +27,7 @@ export class ListItemsComponent implements OnInit {
   });
 
   items = signal<ToDo[]>([]);
+  isSubmitting = signal(false)
 
   async ngOnInit () {
     const items = await this.toDoService.getAll();
@@ -50,6 +51,7 @@ export class ListItemsComponent implements OnInit {
 
   async update (id: string) {
     try {
+      this.isSubmitting.update(() => true);
       const { description } = await this.toDoService.update(id);
       this.removeItem(id)
       this.toastrService.success(description);
@@ -60,10 +62,12 @@ export class ListItemsComponent implements OnInit {
       }
       this.toastrService.error(message)
     }
+    this.isSubmitting.update(() => false);
   }
 
   async delete (id: string) {
     try {
+      this.isSubmitting.update(() => true);
       const { description } = await this.toDoService.delete(id);
       this.removeItem(id)
       this.toastrService.success(description);
@@ -74,6 +78,8 @@ export class ListItemsComponent implements OnInit {
       }
       this.toastrService.error(message)
     }
+
+    this.isSubmitting.update(() => false);
   }
 
   async handleSubmit () {
@@ -85,6 +91,7 @@ export class ListItemsComponent implements OnInit {
     const { description, priority } = this.formGroup.value;
 
     try {
+      this.isSubmitting.update(() => true);
       const { id, userId } = await this.toDoService.create({ description, priority });
 
       this.items.update((items) => {
@@ -108,5 +115,6 @@ export class ListItemsComponent implements OnInit {
       }
       this.toastrService.error(message)
     }
+    this.isSubmitting.update(() => false);
   }
 }

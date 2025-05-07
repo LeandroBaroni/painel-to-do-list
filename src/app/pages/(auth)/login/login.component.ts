@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { ApiError } from '@exceptions/ApiError';
@@ -19,6 +19,8 @@ export class LoginComponent {
   private readonly authService = inject(AuthService);
   private readonly toastrService = inject(ToastrService);
 
+  isSubmitting = signal(false)
+
   formGroup = this.formBuilder.group({
     email: this.formBuilder.control(null, [Validators.required, Validators.email]),
     password: this.formBuilder.control(null, [Validators.required]),
@@ -32,6 +34,7 @@ export class LoginComponent {
 
     const { email, password } = this.formGroup.value;
     try {
+      this.isSubmitting.update(() => true);
       await this.authService.signin(email, password);
 
       await sleep(1000);
@@ -44,5 +47,7 @@ export class LoginComponent {
       }
       this.toastrService.error(message)
     }
+
+    this.isSubmitting.update(() => false);
   }
 }

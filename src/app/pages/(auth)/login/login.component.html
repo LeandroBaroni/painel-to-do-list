@@ -6,7 +6,7 @@
           <input class="input" autocomplete="off" formControlName="email" inputmode="email" type="email" placeholder="E-mail" />
           <input class="input" autocomplete="off" formControlName="password" type="password" placeholder="Senha" />
         </div>
-        <button type="submit">Login</button>
+        <button type="submit" [disabled]="isSubmitting()">Login</button>
     </form>
     <div class="form-section">
       <a routerLink="/registrar">Cadastrar</a>
