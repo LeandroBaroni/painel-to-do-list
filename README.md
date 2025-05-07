@@ -1,59 +1,103 @@
-# PainelToDoList
+# 📝 Painel To Do List
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.1.
+Projeto de gerenciamento de tarefas desenvolvido com **Angular**, com testes unitários utilizando **Jest**. Ele permite a criação de usuários, autenticação e gerenciamento de tarefas pessoais.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Funcionalidades
+
+- ✅ Cadastro de usuário
+- 🔐 Login com autenticação
+- 📋 Listagem de tarefas pendentes
+- ➕ Criação de tarefas com prioridade
+- 🧪 Testes unitários com Jest
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- [Angular](https://angular.io/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Jest](https://jestjs.io/)
+- [Node.js](https://nodejs.org/)
+- [API REST](https://to-do-list-rn9g.onrender.com) (ou `localhost` para ambiente de desenvolvimento)
+
+---
+
+## 📦 Instalação
+
+Clone o repositório e instale as dependências:
 
 ```bash
+git clone https://github.com/seu-usuario/painel-to-do-list.git
+cd painel-to-do-list
+npm install
+▶️ Executar o Projeto
+Modo Desenvolvimento
+bash
+Copiar código
 ng serve
-```
+Acesse em: http://localhost:4300
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Rodar Testes
+bash
+Copiar código
+npm run test
+🌐 API
+✅ API Produção
+perl
+Copiar código
+https://to-do-list-rn9g.onrender.com
+🛠️ API Local
+bash
+Copiar código
+http://127.0.0.1:5001/to-do-list-d8a09/southamerica-east1/app
+🔐 Autenticação
+📌 Cadastro de Usuário
+Endpoint: POST /users/create
 
-## Code scaffolding
+Body:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+json
+Copiar código
+{
+  "name": "Fulano Silva",
+  "email": "fulanosilva@exemplo.com",
+  "password": "senha123" // mínimo 6 caracteres
+}
 
-```bash
-ng generate component component-name
-```
+✅ Tarefas
+📋 Listar Tarefas Pendentes
+Endpoint: GET /tasks?completed=false
+Requer Token de autenticação
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+➕ Criar Tarefa
+Endpoint: POST /tasks
+Body:
 
-```bash
-ng generate --help
-```
+json
+Copiar código
+{
+  "description": "Comprar leite",
+  "priority": "Alta"
+}
+🧪 Testes com Jest
+Este projeto utiliza o Jest para testes unitários. Os testes estão localizados nos arquivos *.spec.ts.
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Executar os testes:
+bash
+Copiar código
+npm run test
+📁 Estrutura do Projeto (Resumo)
+arduino
+Copiar código
+src/
+├── app/
+│   ├── components/
+│   ├── services/
+│   ├── models/
+│   └── pages/
+├── assets/
+├── environments/
+├── setup-jest.ts
+└── jest.config.js

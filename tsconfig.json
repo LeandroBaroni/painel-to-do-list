@@ -19,6 +19,7 @@
     "target": "ES2022",
     "module": "ES2022",
     "baseUrl": "./",
+    "types": ["jest"],
     "paths": {
       "@enums/*": ["src/app/core/enums/*"],
       "@configs/*": ["src/app/core/configs/*"],
