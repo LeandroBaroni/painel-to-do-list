@@ -20,7 +20,7 @@ Projeto de gerenciamento de tarefas desenvolvido com **Angular**, com testes uni
 - [TypeScript](https://www.typescriptlang.org/)
 - [Jest](https://jestjs.io/)
 - [Node.js](https://nodejs.org/)
-- [API REST](https://to-do-list-rn9g.onrender.com) (ou `localhost` para ambiente de desenvolvimento)
+- [API REST LOCALHOST](http://127.0.0.1:5001/to-do-list-d8a09/southamerica-east1/app) (ambiente de desenvolvimento)
 
 ---
 
@@ -39,8 +39,6 @@ echo "npm run dev"
 Rodar Testes
 npm run test
 🌐 API
-✅ API Produção
-https://to-do-list-rn9g.onrender.com
 🛠️ API Local
 http://127.0.0.1:5001/to-do-list-d8a09/southamerica-east1/app
 🔐 Autenticação
